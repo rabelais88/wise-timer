@@ -1,9 +1,12 @@
 import React from 'react';
 import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
 import './Popup.css';
+import popupSend from '@/lib/senders/fromPopup';
 
 const Popup = () => {
+  const sendMessage = () => {
+    popupSend('TEST_MESSAGE');
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -11,14 +14,7 @@ const Popup = () => {
         <p>
           Edit <code>src/pages/Popup/Popup.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={sendMessage}>send Message</button>
       </header>
     </div>
   );
