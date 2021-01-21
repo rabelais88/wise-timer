@@ -2,10 +2,12 @@ import React from 'react';
 import logo from '../../assets/img/logo.svg';
 import './Popup.css';
 import popupSend from '@/lib/senders/fromPopup';
+import { MSG_COLOR_CHANGE } from '../../constants';
 
 const Popup = () => {
   const sendMessage = () => {
     popupSend('TEST_MESSAGE');
+    popupSend(MSG_COLOR_CHANGE, 'black');
   };
   return (
     <div className="App">
