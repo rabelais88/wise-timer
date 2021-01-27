@@ -26,9 +26,10 @@ const onListen = async (
   reply({ message: 'hello from content!' });
 };
 
-// listen from background
-const listenFromBackground = () => {
+// listen from content
+const listenFromContent = () => {
+  logger('listening...');
   chrome.runtime.onMessage.addListener(onListen);
 };
 
-export default listenFromBackground;
+export default listenFromContent;

@@ -4,7 +4,9 @@ const logger = makeLogger('backgroundSend');
 // to content script(tab)
 const backgroundSend = (code = 'NO_CODE') => {
   logger('message sent', code);
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+  const tabQuery = {};
+  // for active ones only: { active: true, currentWindow: true }
+  chrome.tabs.query(tabQuery, function (tabs) {
     if (tabs.length === 0) return null;
     const [activeTab] = tabs;
     const activeTabId = activeTab.id || 0;

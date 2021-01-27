@@ -1,4 +1,4 @@
-import strToHash from './_strToHash';
+import strToRangedNumber from './strToRangedNumber';
 
 const colors = [
   '#264653',
@@ -13,12 +13,11 @@ interface consoleInterface {
   (...arg: any[]): void;
 }
 const makeLogger = (loggerName: string): consoleInterface => {
-  const seed = strToHash(loggerName);
-  const colorIndex = Math.ceil(seed * colors.length);
+  const colorIndex = strToRangedNumber(loggerName, colors.length);
   const color = colors[colorIndex];
-  const colorStyle = `color:${color};`;
+  const colorStyle = `color: ${color};`;
   return (...args: any[]) =>
-    console.log(`%c ${loggerName} -> `, colorStyle, ...args);
+    console.log(`%c${loggerName}:`, colorStyle, ...args);
 };
 
 export default makeLogger;
