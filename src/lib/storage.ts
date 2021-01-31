@@ -2,6 +2,11 @@ import makeLogger from './makeLogger';
 
 const logger = makeLogger('storage');
 
+type defaultValueType = () => { [key: string]: any };
+const getDefaultValues: defaultValueType = () => ({
+  sites: {},
+});
+
 const storage = () => {
   const set = (key: string, value: any) => {
     return new Promise((resolve, reject) => {
@@ -15,10 +20,20 @@ const storage = () => {
         logger('key should be either string or collection of strings');
         reject();
       }
+
+      if (typeof key === 'string') {
+        chrome.storage.sync.get(key, (items) => {
+          if (!items[key]) {
+            const defaultValues = getDefaultValues();
+            return resolve(defaultValues[key]);
+          }
+          return resolve(items[key]);
+        });
+      }
+
       chrome.storage.sync.get(key, (items) => {
         return resolve(items);
       });
-      return resolve({});
     });
   };
 
