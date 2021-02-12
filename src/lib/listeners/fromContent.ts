@@ -30,6 +30,10 @@ const onListen = async (
 const listenFromContent = () => {
   logger('listening...');
   chrome.runtime.onMessage.addListener(onListen);
+  // https://developer.chrome.com/docs/extensions/reference/tabs/#event-onUpdated
+  // chrome.tabs.onUpdated.addListener()
+  // https://developer.chrome.com/docs/extensions/reference/tabs/#event-onCreated
+  // chrome.tabs.onCreated.addListener()
 };
 
 export default listenFromContent;
