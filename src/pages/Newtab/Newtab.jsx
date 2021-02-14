@@ -1,27 +1,28 @@
 import React from 'react';
-import logo from '../../assets/img/logo.svg';
-import './Newtab.css';
-import './Newtab.scss';
+// import logo from '../../assets/img/logo.svg';
+// import './Newtab.css';
+// import './Newtab.scss';
+import Document from '@/containers/Document';
+import { Heading, Center, Text, Button } from '@chakra-ui/react';
+import { NewtabLayout } from '@/containers/layout';
+import openSettings from '@/lib/openSettings';
 
 const Newtab = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Newtab/Newtab.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <h6>The color of this paragraph is defined using SASS.</h6>
-      </header>
-    </div>
+    <Document>
+      <NewtabLayout>
+        <Center>
+          <Heading>Welcome🤚</Heading>
+          <Text>before proceeding to web pages,</Text>
+        </Center>
+        <Center>
+          <Text>Please check these to get focused on your work</Text>
+        </Center>
+        <Button onClick={openSettings}>
+          click this button to open settings
+        </Button>
+      </NewtabLayout>
+    </Document>
   );
 };
 
