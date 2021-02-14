@@ -1,6 +1,8 @@
 # Wise Timer Chrome Extension
 
-This Chrome Extension aims to provide help for users who need better time management system.
+[![Build Status](https://cloud.drone.io/api/badges/rabelais88/wise-timer/status.svg)](https://cloud.drone.io/rabelais88/wise-timer)
+
+This Chrome Extension aims remove any distractions on the web
 
 # License
 
